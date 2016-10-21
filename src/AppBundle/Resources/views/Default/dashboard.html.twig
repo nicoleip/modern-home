@@ -1,0 +1,97 @@
+{% extends "AppBundle:Default:index.html.twig" %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('/css/fullcalendar.min.css')}}" />
+  <link rel="stylesheet" href="{{ asset('/css/fullcalendar.print.css')}}" />
+  <link rel="stylesheet" href="{{ asset('/css/dashboard.css')}}" />
+{% endblock %}
+
+
+{% block container %}
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+
+          <a href="product.php" style="text-decoration:none;color:black;">
+            Total Product
+            <span class="badge pull pull-right"><?php echo $countProduct; ?></span>
+          </a>
+
+        </div> <!--/panel-hdeaing-->
+      </div> <!--/panel-->
+    </div> <!--/col-md-4-->
+
+    <div class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <a href="orders.php?o=manord" style="text-decoration:none;color:black;">
+            Total Orders
+            <span class="badge pull pull-right"><?php echo $countOrder; ?></span>
+          </a>
+
+        </div> <!--/panel-hdeaing-->
+      </div> <!--/panel-->
+    </div> <!--/col-md-4-->
+
+    <div class="col-md-4">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <a href="product.php" style="text-decoration:none;color:black;">
+            Low Stock
+            <span class="badge pull pull-right"><?php echo $countLowStock; ?></span>
+          </a>
+
+        </div> <!--/panel-hdeaing-->
+      </div> <!--/panel-->
+    </div> <!--/col-md-4-->
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="cardHeader">
+          <h1><?php echo date('d'); ?></h1>
+        </div>
+
+        <div class="cardContainer">
+          <p><?php echo date('l') .' '.date('d').', '.date('Y'); ?></p>
+        </div>
+      </div>
+      <br/>
+
+      <div class="card">
+        <div class="cardHeader" style="background-color:#245580;">
+          <h1><?php if($totalRevenue) {
+		    	echo $totalRevenue;
+		    	} else {
+		    		echo '0';
+		    		} ?></h1>
+        </div>
+
+        <div class="cardContainer">
+          <p> <i class="glyphicon glyphicon-usd"></i> Total Revenue</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading"> <i class="glyphicon glyphicon-calendar"></i> Calendar</div>
+        <div class="panel-body">
+          <div id="calendar"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+{% endblock %}
+{% block javascripts %}
+  <script src="{{ asset('/js/moment.min.js')}}"></script>
+  <script src="{{ asset('/js/fullcalendar.min.js')}}"></script>
+  <script src="{{ asset('/js/dashboard.js')}}"></script>
+
+{% endblock %}

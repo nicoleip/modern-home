@@ -6,29 +6,29 @@
 
 {% block container %}
     {#<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>#}
-<div class="container">
-
-        <div class="modal-dialog">
-            <div class="loginmodal-container">
-                <h1>Login to Your Account</h1><br>
-                <form method="post" action="{{path('login_homepage')}}">
-                    <input type="text" name="username" placeholder="Username">
-                    <input type="password" name="password" placeholder="Password">
-                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                </form>
+<div class="wrapper">
+    <div class="container">
+        {%   if error is defined  %}
+            <div class="alert alert-danger">
+                <strong>Грешно потребителско име или парола! Опитайте отново...</strong>
             </div>
-        </div>
-    {% if name is defined %}
-    <div class="alert alert-success">
-        <strong>Welcome, {{ name }}</strong>
-    </div>
-    {%  endif %}
-    {%   if error is defined  %}
-    <div class="alert alert-danger">
-        <strong> Wrong Credentials</strong>
+        {%  endif %}
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Влезте в акаунта си:</h1><br>
+                    <form method="post" action="{{path('login')}}">
+                        <input type="text" name="username" placeholder="Потребителско име">
+                        <input type="password" name="password" placeholder="Парола">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember" value="remember-me">Запомни ме
+                        </label>
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Вход">
+                    </form>
+                </div>
+            </div>
     </div>
 </div>
-{%  endif %}
+
 {% endblock %}
 {% block javascripts %}
 {% endblock %}
