@@ -2,6 +2,38 @@ login:
     resource: "@LoginBundle/Resources/config/routing.yml"
     prefix:   /
 
+dashboard: 
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
+
+brands:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
+
+categories:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
+
+products:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
+
+report:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
+
+add-order:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
+
+manage-orders:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
+
+settings:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

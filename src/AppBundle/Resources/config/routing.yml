@@ -1,1 +1,24 @@
-
+brands:
+    path:     /brands
+    defaults: { _controller: AppBundle:Brands:index }
+dashboard:
+    path:     /dashboard
+    defaults: { _controller: AppBundle:Dashboard:index }
+categories:
+  path:       /categories
+  defaults:   { _controller: AppBundle:Categories:index }
+products:
+  path:       /products
+  defaults:   { _controller: AppBundle:Products:index }
+report:
+  path:       /report
+  defaults:   { _controller: AppBundle:Report:index }
+add-order:
+  path:       /add-order
+  defaults:   {_controller: AppBundle:Orders:addOrder }
+manage-orders:
+  path:       /manage-orders
+  defaults:   {_controller: AppBundle:Orders:manageOrders }
+settings:
+  path:       /settings
+  defaults:   {_controller: AppBundle:Settings:index }

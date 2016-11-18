@@ -1,22 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed);
 
 /****** LOGIN MODAL ******/
 .loginmodal-container {
     padding: 30px;
-    max-width: 350px;
+    max-width: 450px;
     width: 100% !important;
-    background-color: #F7F7F7;
-    margin: 0 auto;
+    background-color: #d7e1e5;
     border-radius: 2px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    font-family: roboto;
+    font-family: Open Sans Condensed;
+    margin-left: 650px;
 }
 
-.loginmodal-container h1 {
+.loginmodal-container h1 { 
     text-align: center;
-    font-size: 1.8em;
-    font-family: roboto;
+    font-size: 3em;
+    font-family: poiret one;
+    color: #2c3646;
 }
 
 .loginmodal-container input[type=submit] {
@@ -51,8 +54,8 @@
 
 .loginmodal {
     text-align: center;
-    font-size: 14px;
-    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    font-family: poiret one;
     font-weight: 700;
     height: 36px;
     padding: 0 8px;
@@ -66,10 +69,11 @@
     border: 0px;
     color: #fff;
     text-shadow: 0 1px rgba(0,0,0,0.1);
-    background-color: #4d90fe;
+    box-shadow: 0 1px rgba(0,0,0,0.1);
+    background-color: #7c8491;
     padding: 17px 0px;
-    font-family: roboto;
-    font-size: 14px;
+    font-family: poiret one;
+    font-size: 24px;
     /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 
@@ -77,7 +81,7 @@
     /* border: 1px solid #2f5bb7; */
     border: 0px;
     text-shadow: 0 1px rgba(0,0,0,0.3);
-    background-color: #357ae8;
+    background-color: #2c3646;
     /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
 }
 
@@ -92,23 +96,44 @@
 }
 
 .login-help{
-    font-size: 12px;
+    font-size: 20px;
 }
 
-div .alert-info{
+.alert-banner{
+    max-width: 450px; !important;
+
+}
+
+
+
+div .alert-danger{
+    text-align: center;
+}
+
+
+
+.loginmodal-container label{
+    margin-left: 20px;
+    color: #2c3646;
+}
+
+#remember-me{
+    font-family: Open Sans Condensed;
 
 }
 
 .wrapper{
-    background: url("../img/login-cover.jpg") no-repeat center center fixed;
+    min-height: 100%;
+    background: url("../img/login.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
-}
+    background-size: cover;}
 
-.wrapper::after{
-    opacity: 0.5;
+.wrapper1{
+    background: url("https://d3k5xyayaartr5.cloudfront.net/_assets/pattern-overlays/patterns/black-dots.png");
+    min-height: 100%;
+
 }
 
 .modal-dialog {

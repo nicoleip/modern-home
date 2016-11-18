@@ -1,9 +1,6 @@
 login:
     path:     /login
     defaults: { _controller: LoginBundle:Default:index }
-dashboard:
-    path:     /dashboard
-    defaults: { _controller: AppBundle:Dashboard:index }
 
 logout:
     path:     /logout
