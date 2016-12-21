@@ -1,51 +1,37 @@
-{% extends "AppBundle:Orders:orders.html.twig" %}
+{% extends "AppBundle:Default:index.html.twig" %}
 
 {% block container %}
-    <div class='div-request div-hide'>add</div>
-    <ol class="breadcrumb">
-    <li><a href="{{ path("dashboard") }}">Home</a></li>
-    <li>Order</li>
-    <li class="active">Add Order</li>
 
-        <h4>
-            <i class='glyphicon glyphicon-circle-arrow-right'></i>
-            Add Order
-        </h4>
+    <ol class="breadcrumb">
+    <li><a href="{{ path("dashboard") }}">Начало</a></li>
+    <li>Продажби</li>
+    <li class="active">Добави продажба</li></ol>
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class="glyphicon glyphicon-plus-sign"></i>	Add Order
+                <i class="glyphicon glyphicon-plus-sign"></i>	Добави дневни продажби
             </div> <!--/panel-->
             <div class="panel-body">
                 <div class="success-messages"></div>
                 <form class="form-horizontal" method="POST" action="php_action/createOrder.php" id="createOrderForm">
 
                     <div class="form-group">
-                        <label for="orderDate" class="col-sm-2 control-label">Order Date</label>
+                        <label for="orderDate" class="col-sm-2 control-label">Дата</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="orderDate" name="orderDate" autocomplete="off" />
                         </div>
                     </div> <!--/form-group-->
-                    <div class="form-group">
-                        <label for="clientName" class="col-sm-2 control-label">Client Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="clientName" name="clientName" placeholder="Client Name" autocomplete="off" />
-                        </div>
-                    </div> <!--/form-group-->
-                    <div class="form-group">
-                        <label for="clientContact" class="col-sm-2 control-label">Client Contact</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="clientContact" name="clientContact" placeholder="Contact Number" autocomplete="off" />
-                        </div>
-                    </div> <!--/form-group-->
-
                     <table class="table" id="productTable">
                         <thead>
                         <tr>
-                            <th style="width:40%;">Product</th>
-                            <th style="width:20%;">Rate</th>
-                            <th style="width:15%;">Quantity</th>
-                            <th style="width:15%;">Total</th>
+                            <th style="width:5%;">#</th>
+                            <th style="width:10%;">Артикул</th>
+                            <th style="width:10%;">Цена</th>
+                            <th style="width:10%;">Количество</th>
+                            <th style="width:15%;">Сума</th>
+                            <th style="width:10%;">Отстъпка</th>
+                            <th style="width:15%;">Крайна сума: </th>
+                            <th style="width:20%;">Вид плащане: </th>
                             <th style="width:10%;"></th>
                         </tr>
                         </thead>
@@ -54,11 +40,12 @@
 			  		$arrayNumber = 0;
 			  		for($x = 1; $x < 4; $x++) { ?>
                         <tr id="row<?php echo $x; ?>" class="<?php echo $arrayNumber; ?>">
-                            <td style="margin-left:20px;">
+                            <td>red</td>
+                            <td style="margin-left:10px;" class="col-md-4">
                                 <div class="form-group">
 
                                     <select class="form-control" name="productName[]" id="productName<?php echo $x; ?>" onchange="getProductData(<?php echo $x; ?>)" >
-                                        <option value="">~~SELECT~~</option>
+                                        <option value="">-- ИЗБЕРИ --</option>
                                         <?php
 			  							$productSql = "SELECT * FROM product WHERE active = 1 AND status = 1 AND quantity != 0";
 			  							$productData = $connect->query($productSql);
@@ -71,11 +58,11 @@
                                     </select>
                                 </div>
                             </td>
-                            <td style="padding-left:20px;">
+                            <td style="padding-left:20px;" class="col-md-2">
                                 <input type="text" name="rate[]" id="rate<?php echo $x; ?>" autocomplete="off" disabled="true" class="form-control" />
                                 <input type="hidden" name="rateValue[]" id="rateValue<?php echo $x; ?>" autocomplete="off" class="form-control" />
                             </td>
-                            <td style="padding-left:20px;">
+                            <td style="padding-left:20px;" class="col-md-1">
                                 <div class="form-group">
                                     <input type="number" name="quantity[]" id="quantity<?php echo $x; ?>" onkeyup="getTotal(<?php echo $x ?>)" autocomplete="off" class="form-control" min="1" />
                                 </div>
@@ -83,6 +70,21 @@
                             <td style="padding-left:20px;">
                                 <input type="text" name="total[]" id="total<?php echo $x; ?>" autocomplete="off" class="form-control" disabled="true" />
                                 <input type="hidden" name="totalValue[]" id="totalValue<?php echo $x; ?>" autocomplete="off" class="form-control" />
+                            </td>
+                            <td style="padding-left:20px;">
+                                    <input type="text" class="form-control" id="discount" name="discount" onkeyup="discountFunc()" autocomplete="off" />
+                            </td>
+                            <td style="padding-left:20px;">
+                            <input type="text" class="form-control" id="grandTotal" name="grandTotal" disabled="true" />
+                            <input type="hidden" class="form-control" id="grandTotalValue" name="grandTotalValue" />
+                            </td>
+                            <td style="padding-left:20px;">
+                                <select class="form-control" name="paymentType" id="paymentType">
+                                    <option value="">-- ИЗБЕРИ --</option>
+                                    <option value="1">Кеш</option>
+                                    <option value="2">POS</option>
+                                </select>
+
                             </td>
                             <td>
 
@@ -98,34 +100,20 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="subTotal" class="col-sm-3 control-label">Sub Amount</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="subTotal" name="subTotal" disabled="true" />
-                                <input type="hidden" class="form-control" id="subTotalValue" name="subTotalValue" />
-                            </div>
-                        </div> <!--/form-group-->
-                        <div class="form-group">
-                            <label for="vat" class="col-sm-3 control-label">VAT 13%</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="vat" name="vat" disabled="true" />
-                                <input type="hidden" class="form-control" id="vatValue" name="vatValue" />
-                            </div>
-                        </div> <!--/form-group-->
-                        <div class="form-group">
-                            <label for="totalAmount" class="col-sm-3 control-label">Total Amount</label>
+                            <label for="totalAmount" class="col-sm-3 control-label">Тотал</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="totalAmount" name="totalAmount" disabled="true"/>
                                 <input type="hidden" class="form-control" id="totalAmountValue" name="totalAmountValue" />
                             </div>
                         </div> <!--/form-group-->
                         <div class="form-group">
-                            <label for="discount" class="col-sm-3 control-label">Discount</label>
+                            <label for="discount" class="col-sm-3 control-label">Отстъпка</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="discount" name="discount" onkeyup="discountFunc()" autocomplete="off" />
                             </div>
                         </div> <!--/form-group-->
                         <div class="form-group">
-                            <label for="grandTotal" class="col-sm-3 control-label">Grand Total</label>
+                            <label for="grandTotal" class="col-sm-3 control-label">Крайна сума</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="grandTotal" name="grandTotal" disabled="true" />
                                 <input type="hidden" class="form-control" id="grandTotalValue" name="grandTotalValue" />
@@ -135,37 +123,12 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="paid" class="col-sm-3 control-label">Paid Amount</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="paid" name="paid" autocomplete="off" onkeyup="paidAmount()" />
-                            </div>
-                        </div> <!--/form-group-->
-                        <div class="form-group">
-                            <label for="due" class="col-sm-3 control-label">Due Amount</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="due" name="due" disabled="true" />
-                                <input type="hidden" class="form-control" id="dueValue" name="dueValue" />
-                            </div>
-                        </div> <!--/form-group-->
-                        <div class="form-group">
-                            <label for="clientContact" class="col-sm-3 control-label">Payment Type</label>
+                            <label for="clientContact" class="col-sm-3 control-label">Вид на плащането</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="paymentType" id="paymentType">
-                                    <option value="">~~SELECT~~</option>
-                                    <option value="1">Cheque</option>
-                                    <option value="2">Cash</option>
-                                    <option value="3">Credit Card</option>
-                                </select>
-                            </div>
-                        </div> <!--/form-group-->
-                        <div class="form-group">
-                            <label for="clientContact" class="col-sm-3 control-label">Payment Status</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="paymentStatus" id="paymentStatus">
-                                    <option value="">~~SELECT~~</option>
-                                    <option value="1">Full Payment</option>
-                                    <option value="2">Advance Payment</option>
-                                    <option value="3">No Payment</option>
+                                    <option value="">-- ИЗБЕРИ --</option>
+                                    <option value="2">Кеш</option>
+                                    <option value="3">POS</option>
                                 </select>
                             </div>
                         </div> <!--/form-group-->
@@ -174,11 +137,11 @@
 
                     <div class="form-group submitButtonFooter">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" onclick="addRow()" id="addRowBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-plus-sign"></i> Add Row </button>
+                            <button type="button" class="btn btn-default" onclick="addRow()" id="addRowBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-plus-sign"></i> Добави ред </button>
 
-                            <button type="submit" id="createOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Save Changes</button>
+                            <button type="submit" id="createOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Запази промените</button>
 
-                            <button type="reset" class="btn btn-default" onclick="resetOrderForm()"><i class="glyphicon glyphicon-erase"></i> Reset</button>
+                            <button type="reset" class="btn btn-default" onclick="resetOrderForm()"><i class="glyphicon glyphicon-erase"></i> Изчисти</button>
                         </div>
                     </div>
                 </form>
@@ -188,53 +151,28 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title"><i class="glyphicon glyphicon-edit"></i> Edit Payment</h4>
+                                <h4 class="modal-title"><i class="glyphicon glyphicon-edit"></i> Редактирай плащане</h4>
                             </div>
 
                             <div class="modal-body form-horizontal" style="max-height:500px; overflow:auto;" >
 
                                 <div class="paymentOrderMessages"></div>
 
-
                                 <div class="form-group">
-                                    <label for="due" class="col-sm-3 control-label">Due Amount</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="due" name="due" disabled="true" />
-                                    </div>
-                                </div> <!--/form-group-->
-                                <div class="form-group">
-                                    <label for="payAmount" class="col-sm-3 control-label">Pay Amount</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="payAmount" name="payAmount"/>
-                                    </div>
-                                </div> <!--/form-group-->
-                                <div class="form-group">
-                                    <label for="clientContact" class="col-sm-3 control-label">Payment Type</label>
+                                    <label for="clientContact" class="col-sm-3 control-label">Вид на плащането</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" name="paymentType" id="paymentType" >
-                                            <option value="">~~SELECT~~</option>
-                                            <option value="1">Cheque</option>
-                                            <option value="2">Cash</option>
-                                            <option value="3">Credit Card</option>
-                                        </select>
-                                    </div>
-                                </div> <!--/form-group-->
-                                <div class="form-group">
-                                    <label for="clientContact" class="col-sm-3 control-label">Payment Status</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-control" name="paymentStatus" id="paymentStatus">
-                                            <option value="">~~SELECT~~</option>
-                                            <option value="1">Full Payment</option>
-                                            <option value="2">Advance Payment</option>
-                                            <option value="3">No Payment</option>
+                                            <option value="">-- ИЗБЕРИ --</option>
+                                            <option value="2">Кеш</option>
+                                            <option value="3">POS</option>
                                         </select>
                                     </div>
                                 </div> <!--/form-group-->
 
                             </div> <!--/modal-body-->
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> Close</button>
-                                <button type="button" class="btn btn-primary" id="updatePaymentOrderBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok-sign"></i> Save changes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> Затвори</button>
+                                <button type="button" class="btn btn-primary" id="updatePaymentOrderBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok-sign"></i> Запази промените</button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
@@ -247,17 +185,17 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title"><i class="glyphicon glyphicon-trash"></i> Remove Order</h4>
+                                <h4 class="modal-title"><i class="glyphicon glyphicon-trash"></i> Изтрии продажба</h4>
                             </div>
                             <div class="modal-body">
 
                                 <div class="removeOrderMessages"></div>
 
-                                <p>Do you really want to remove ?</p>
+                                <p>Наистина ли искате да изтриете ?</p>
                             </div>
                             <div class="modal-footer removeProductFooter">
-                                <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> Close</button>
-                                <button type="button" class="btn btn-primary" id="removeOrderBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok-sign"></i> Save changes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> Затоври</button>
+                                <button type="button" class="btn btn-primary" id="removeOrderBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok-sign"></i> Запази промените</button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->

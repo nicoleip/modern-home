@@ -6,3 +6,6 @@ logout:
     path:     /logout
     defaults: { _controller: LoginBundle:Default:logout }
 
+home:
+    path:     /
+    defaults: { _controller: LoginBundle:Default:index }

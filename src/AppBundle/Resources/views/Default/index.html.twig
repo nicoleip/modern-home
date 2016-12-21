@@ -6,17 +6,20 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css')}}" />
-	<link rel="stylesheet" href="{{ asset('/css/custom.css')}}" />
-	<link rel="stylesheet" href="{{ asset('/css/jquery.dataTables.min.css')}}" />
-	<link rel="stylesheet" href="{{ asset('/css/fileinput.min.css')}}" />
-	<link rel="stylesheet" href="{{ asset('/css/jquery-ui.min.css')}}" />
-	<!-- Le scripts -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="{{ asset('/js/jquery-ui.min.js') }}"></script>
+
+
+		<!-- Stylesheets -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}" />
+		<link rel="stylesheet" href="{{ asset('/css/custom.css')}}" />
+		<link rel="stylesheet" href="{{ asset('/css/custom.css')}}" />
+		<link rel="stylesheet" href="{{ asset('/css/jquery.dataTables.min.css')}}" />
+		<link rel="stylesheet" href="{{ asset('/css/fileinput.min.css')}}" />
+		<link rel="stylesheet" href="{{ asset('/css/jquery-ui.min.css')}}" />
+		<!-- Le scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="{{ asset('/js/jquery-ui.min.js') }}"></script>
 
 	{% 	block stylesheets %}
 	{% endblock %}
@@ -64,25 +67,31 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i> <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li id="topNavSetting"><a href="{{ path('settings') }}"> <i class="glyphicon glyphicon-wrench"></i> Настройки</a></li>
-						<li id="topNavLogout"><a href="{{path('logout')}}"> <i class="glyphicon glyphicon-log-out"></i> Изход от системата</a></li>
+						<li id="topNavLogout"><a href="{{path('logout')}}"> <i class="glyphicon glyphicon-log-out"></i> Изход</a></li>
 					</ul>
 				</li>
 
 			</ul>
 		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
-</nav>
 
 {% block container %}
 {% endblock %}
 
-{%block javascripts %}
+
+	</div><!-- /.container-fluid -->
+</nav>
+
+{% block modals %}
 {% endblock %}
+
+{%block javascripts %}
 
 <script src="{{ asset('/js/canvas-t-blob.min.js') }}"></script>
 <script src="{{ asset('/js/sortable.min.js') }}"></script>
 <script src="{{ asset('/js/purify.min.js') }}"></script>
 <script src="{{ asset('/js/fileinput.min.js') }}"></script>
+
+{% endblock %}
 </body>
 
 </html>
