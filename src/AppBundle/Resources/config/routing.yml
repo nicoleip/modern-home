@@ -15,10 +15,19 @@ report:
   defaults:   { _controller: AppBundle:Report:index }
 add-order:
   path:       /add-order
-  defaults:   {_controller: AppBundle:Orders:addOrder }
+  defaults:   {_controller: AppBundle:Orders:addOrderIndex }
 manage-orders:
   path:       /manage-orders
-  defaults:   {_controller: AppBundle:Orders:manageOrders }
+  defaults:   {_controller: AppBundle:Orders:manageOrdersIndex }
 settings:
   path:       /settings
   defaults:   {_controller: AppBundle:Settings:index }
+
+
+fetch-product-data:
+  path:       /fetch-product-data
+  defaults:   {_controller: AppBundle:Products:fetchProductData }
+
+fetch-selected-product-data:
+  path:       /fetch-selected-product-data
+  defaults:   {_controller: AppBundle:Products:fetchSelectedProductData }

@@ -36,40 +36,33 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php
-			  		$arrayNumber = 0;
-			  		for($x = 1; $x < 4; $x++) { ?>
-                        <tr id="row<?php echo $x; ?>" class="<?php echo $arrayNumber; ?>">
-                            <td>red</td>
+                        {% set arrayNum = 0 %}
+                        {% set counter = 1 %}
+                        <tr id="row{{ counter }}" class="<?php echo $arrayNumber; ?>">
+                            <td>{{ counter }}</td>
                             <td style="margin-left:10px;" class="col-md-4">
                                 <div class="form-group">
 
-                                    <select class="form-control" name="productName[]" id="productName<?php echo $x; ?>" onchange="getProductData(<?php echo $x; ?>)" >
+                                    <select class="form-control" name="productName[]" id="productName{{ counter }}" onchange="getProductData({{ counter }})" >
                                         <option value="">-- ИЗБЕРИ --</option>
-                                        <?php
-			  							$productSql = "SELECT * FROM product WHERE active = 1 AND status = 1 AND quantity != 0";
-			  							$productData = $connect->query($productSql);
-
-                                        while($row = $productData->fetch_array()) {
-                                        echo "<option value='".$row['product_id']."' id='changeProduct".$row['product_id']."'>".$row['product_name']."</option>";
-                                        } // /while
-
-                                        ?>
+                                       {% for product in productData %}
+                                        <option value="{{ product.id }}">{{ product.name }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                             </td>
                             <td style="padding-left:20px;" class="col-md-2">
-                                <input type="text" name="rate[]" id="rate<?php echo $x; ?>" autocomplete="off" disabled="true" class="form-control" />
-                                <input type="hidden" name="rateValue[]" id="rateValue<?php echo $x; ?>" autocomplete="off" class="form-control" />
+                                <input type="text" name="rate[]" id="rate{{ counter }}" autocomplete="off" disabled="true" class="form-control" />
+                                <input type="hidden" name="rateValue[]" id="rateValue{{ counter }}" autocomplete="off" class="form-control" />
                             </td>
                             <td style="padding-left:20px;" class="col-md-1">
                                 <div class="form-group">
-                                    <input type="number" name="quantity[]" id="quantity<?php echo $x; ?>" onkeyup="getTotal(<?php echo $x ?>)" autocomplete="off" class="form-control" min="1" />
+                                    <input type="number" name="quantity[]" id="quantity{{ counter }}" onkeyup="getTotal()" autocomplete="off" class="form-control" min="1" />
                                 </div>
                             </td>
                             <td style="padding-left:20px;">
-                                <input type="text" name="total[]" id="total<?php echo $x; ?>" autocomplete="off" class="form-control" disabled="true" />
-                                <input type="hidden" name="totalValue[]" id="totalValue<?php echo $x; ?>" autocomplete="off" class="form-control" />
+                                <input type="text" name="total[]" id="total{{ counter }}" autocomplete="off" class="form-control" disabled="true" />
+                                <input type="hidden" name="totalValue[]" id="totalValue{{ counter }}" autocomplete="off" class="form-control" />
                             </td>
                             <td style="padding-left:20px;">
                                     <input type="text" class="form-control" id="discount" name="discount" onkeyup="discountFunc()" autocomplete="off" />
@@ -88,13 +81,10 @@
                             </td>
                             <td>
 
-                                <button class="btn btn-default removeProductRowBtn" type="button" id="removeProductRowBtn" onclick="removeProductRow(<?php echo $x; ?>)"><i class="glyphicon glyphicon-trash"></i></button>
+                                <button class="btn btn-default removeProductRowBtn" type="button" id="removeProductRowBtn" onclick="removeProductRow({{ counter }})"><i class="glyphicon glyphicon-trash"></i></button>
                             </td>
                         </tr>
-                        <?php
-		  			$arrayNumber++;
-			  		} // /for
-			  		?>
+                        {% set arrayNum = arrayNum + 1 %}
                         </tbody>
                     </table>
 
@@ -106,35 +96,7 @@
                                 <input type="hidden" class="form-control" id="totalAmountValue" name="totalAmountValue" />
                             </div>
                         </div> <!--/form-group-->
-                        <div class="form-group">
-                            <label for="discount" class="col-sm-3 control-label">Отстъпка</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="discount" name="discount" onkeyup="discountFunc()" autocomplete="off" />
-                            </div>
-                        </div> <!--/form-group-->
-                        <div class="form-group">
-                            <label for="grandTotal" class="col-sm-3 control-label">Крайна сума</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="grandTotal" name="grandTotal" disabled="true" />
-                                <input type="hidden" class="form-control" id="grandTotalValue" name="grandTotalValue" />
-                            </div>
-                        </div> <!--/form-group-->
                     </div> <!--/col-md-6-->
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="clientContact" class="col-sm-3 control-label">Вид на плащането</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="paymentType" id="paymentType">
-                                    <option value="">-- ИЗБЕРИ --</option>
-                                    <option value="2">Кеш</option>
-                                    <option value="3">POS</option>
-                                </select>
-                            </div>
-                        </div> <!--/form-group-->
-                    </div> <!--/col-md-6-->
-
-
                     <div class="form-group submitButtonFooter">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="button" class="btn btn-default" onclick="addRow()" id="addRowBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-plus-sign"></i> Добави ред </button>
@@ -145,6 +107,8 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
 
                 <div class="modal fade" tabindex="-1" role="dialog" id="paymentOrderModal">
                     <div class="modal-dialog modal-lg">

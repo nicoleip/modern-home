@@ -11,11 +11,32 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductsController extends Controller
-{
+{ 
+
     public function indexAction(Request $request)
     {
         return $this->render('AppBundle:Products:products.html.twig');
+    }
+
+    public function fetchProductDataAction(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('AppBundle:Products');
+
+        $productData = $repository->findAll();
+        return new Response(json_encode($productData));
+    }
+
+    public function fetchSelectedProductDataAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('AppBundle:Products');
+
+        $productData = $repository->findOneBy($id);
+        return new Response(json_encode($productData));
     }
 }

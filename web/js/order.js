@@ -2,12 +2,12 @@ var manageOrderTable;
 
 $(document).ready(function() {
 
-	var divRequest = $(".div-request").text();
+	var divRequest = 'blabla';
 
 	// top nav bar 
 	$("#navOrder").addClass('active');
 
-	if(divRequest == 'add')  {
+	if(divRequest == 'blabla')  {
 		// add order	
 		// top nav child bar 
 		$('#topNavAddOrder').addClass('active');	
@@ -23,12 +23,8 @@ $(document).ready(function() {
 			$('.text-danger').remove();
 				
 			var orderDate = $("#orderDate").val();
-			var clientName = $("#clientName").val();
-			var clientContact = $("#clientContact").val();
-			var paid = $("#paid").val();
 			var discount = $("#discount").val();
 			var paymentType = $("#paymentType").val();
-			var paymentStatus = $("#paymentStatus").val();		
 
 			// form validation 
 			if(orderDate == "") {
@@ -38,46 +34,11 @@ $(document).ready(function() {
 				$('#orderDate').closest('.form-group').addClass('has-success');
 			} // /else
 
-			if(clientName == "") {
-				$("#clientName").after('<p class="text-danger"> The Client Name field is required </p>');
-				$('#clientName').closest('.form-group').addClass('has-error');
-			} else {
-				$('#clientName').closest('.form-group').addClass('has-success');
-			} // /else
-
-			if(clientContact == "") {
-				$("#clientContact").after('<p class="text-danger"> The Contact field is required </p>');
-				$('#clientContact').closest('.form-group').addClass('has-error');
-			} else {
-				$('#clientContact').closest('.form-group').addClass('has-success');
-			} // /else
-
-			if(paid == "") {
-				$("#paid").after('<p class="text-danger"> The Paid field is required </p>');
-				$('#paid').closest('.form-group').addClass('has-error');
-			} else {
-				$('#paid').closest('.form-group').addClass('has-success');
-			} // /else
-
-			if(discount == "") {
-				$("#discount").after('<p class="text-danger"> The Discount field is required </p>');
-				$('#discount').closest('.form-group').addClass('has-error');
-			} else {
-				$('#discount').closest('.form-group').addClass('has-success');
-			} // /else
-
 			if(paymentType == "") {
 				$("#paymentType").after('<p class="text-danger"> The Payment Type field is required </p>');
 				$('#paymentType').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paymentType').closest('.form-group').addClass('has-success');
-			} // /else
-
-			if(paymentStatus == "") {
-				$("#paymentStatus").after('<p class="text-danger"> The Payment Status field is required </p>');
-				$('#paymentStatus').closest('.form-group').addClass('has-error');
-			} else {
-				$('#paymentStatus').closest('.form-group').addClass('has-success');
 			} // /else
 
 
@@ -123,7 +84,7 @@ $(document).ready(function() {
 	   	} // for       	
 	   	
 
-			if(orderDate && clientName && clientContact && paid && discount && paymentType && paymentStatus) {
+			if(orderDate && paymentType ) {
 				if(validateProduct == true && validateQuantity == true) {
 					// create order button
 					// $("#createOrderBtn").button('loading');
@@ -169,16 +130,8 @@ $(document).ready(function() {
 			
 
 			return false;
-		}); // /create order form function	
-	
-	} else if(divRequest == 'manord') {
-		// top nav child bar 
-		$('#topNavManageOrder').addClass('active');
+		}); // /create order form function
 
-		manageOrderTable = $("#manageOrderTable").DataTable({
-			'ajax': 'php_action/fetchOrder.php',
-			'order': []
-		});		
 					
 	} else if(divRequest == 'editOrd') {
 		$("#orderDate").datepicker();
@@ -391,21 +344,22 @@ function addRow() {
 	}
 
 	$.ajax({
-		url: 'php_action/fetchProductData.php',
+		url: '/fetch-product-data',
 		type: 'post',
 		dataType: 'json',
 		success:function(response) {
 			$("#addRowBtn").button("reset");			
 
-			var tr = '<tr id="row'+count+'" class="'+arrayNumber+'">'+			  				
+			var tr = '<tr id="row'+count+'" class="'+arrayNumber+'">'+
+					'<td>'+ count + '</td>'+
 				'<td>'+
 					'<div class="form-group">'+
 
 					'<select class="form-control" name="productName[]" id="productName'+count+'" onchange="getProductData('+count+')" >'+
-						'<option value="">~~SELECT~~</option>';
+						'<option value="">-- ИЗБЕРИ --</option>';
 						// console.log(response);
 						$.each(response, function(index, value) {
-							tr += '<option value="'+value[0]+'">'+value[1]+'</option>';							
+							tr += '<option value="'+value[0]+'">'+value.name+'</option>';
 						});
 													
 					tr += '</select>'+
@@ -421,8 +375,22 @@ function addRow() {
 					'</div>'+
 				'</td>'+
 				'<td style="padding-left:20px;">'+
-					'<input type="text" name="total[]" id="total'+count+'" autocomplete="off" class="form-control" disabled="true" />'+
-					'<input type="hidden" name="totalValue[]" id="totalValue'+count+'" autocomplete="off" class="form-control" />'+
+						'<input type="text" name="total[]" id="total'+count+'" autocomplete="off" class="form-control" disabled="true" />'+
+				'<input type="hidden" name="totalValue[]" id="totalValue'+count+'" autocomplete="off" class="form-control" />'+
+				'</td>'+
+				'<td style="padding-left:20px;">'+
+				'<input type="text" class="form-control" id="discount'+count+'" name="discount" onkeyup="discountFunc()" autocomplete="off" />'+
+				'</td>'+
+				'<td style="padding-left:20px;">'+
+				'<input type="text" class="form-control" id="grandTotal'+count+'" name="grandTotal" disabled="true" />'+
+				'<input type="hidden" class="form-control" id="grandTotalValue'+count+'" name="grandTotalValue" />'+
+				'</td>'+
+				'<td style="padding-left:20px;">'+
+				'<select class="form-control" name="paymentType" id="paymentType'+count+'">'+
+				'<option value="">-- ИЗБЕРИ --</option>'+
+				'<option value="1">Кеш</option>'+
+				'<option value="2">POS</option>'+
+				'</select>'+
 				'</td>'+
 				'<td>'+
 					'<button class="btn btn-default removeProductRowBtn" type="button" onclick="removeProductRow('+count+')"><i class="glyphicon glyphicon-trash"></i></button>'+
@@ -478,19 +446,19 @@ function getProductData(row = null) {
 
 		} else {
 			$.ajax({
-				url: 'php_action/fetchSelectedProduct.php',
+				url: '/fetch-selected-product-data',
 				type: 'post',
-				data: {productId : productId},
+				data: {id : productId},
 				dataType: 'json',
 				success:function(response) {
 					// setting the rate value into the rate input field
 					
-					$("#rate"+row).val(response.rate);
-					$("#rateValue"+row).val(response.rate);
+					$("#rate"+row).val(response.price);
+					$("#rateValue"+row).val(response.price);
 
 					$("#quantity"+row).val(1);
 
-					var total = Number(response.rate) * 1;
+					var total = Number(response.price) * 1;
 					total = total.toFixed(2);
 					$("#total"+row).val(total);
 					$("#totalValue"+row).val(total);

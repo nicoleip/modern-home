@@ -21,39 +21,39 @@ class Products
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    public $id;
     /**
      * @ORM\Column(type="string")
      */
-    private $name;
+    public $name;
     /**
      * @ORM\Column(type="string")
      */
-    private $image;
+    public $image;
     /**
      * @ORM\Column(type="integer")
      */
-    private $brandId;
+    public $brandId;
     /**
      * @ORM\Column(type="integer")
      */
-    private $categoryId;
+    public $categoryId;
     /**
      * @ORM\Column(type="integer")
      */
-    private $quantity;
+    public $quantity;
     /**
      * @ORM\Column(type="decimal", scale=2)
      */
-    private $price;
+    public $price;
     /**
      * @ORM\Column(type="integer")
      */
-    private $active;
+    public $active;
     /**
      * @ORM\Column(type="integer")
      */
-    private $status;
+    public $status;
 
     /**
      * @return mixed
