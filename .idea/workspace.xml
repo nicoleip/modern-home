@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c8f5738-269b-4a86-bb58-508608d01fa5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/manorder.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/OrdersController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/OrdersController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ProductsController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ProductsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Products.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Products.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Orders/add-order.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Orders/add-order.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Orders/manage-orders.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Orders/manage-orders.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/order.js" afterPath="$PROJECT_DIR$/web/js/order.js" />
     </list>
     <ignored path="modern-home.iws" />
@@ -45,21 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LoginBundle/Modals/Login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OrdersController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/OrdersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+            <state relative-caret-position="360">
+              <caret line="23" column="70" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
               <folding>
                 <element signature="e#136#193#0#PHP" expanded="true" />
               </folding>
@@ -70,7 +54,7 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
+            <state relative-caret-position="1195">
               <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
               <folding />
             </state>
@@ -80,8 +64,8 @@
       <file leaf-file-name="ProductsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ProductsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+            <state relative-caret-position="442">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="e#136#193#0#PHP" expanded="true" />
               </folding>
@@ -92,8 +76,8 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+            <state relative-caret-position="682">
+              <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -112,8 +96,8 @@
       <file leaf-file-name="add-order.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Orders/add-order.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state relative-caret-position="747">
+              <caret line="77" column="66" selection-start-line="77" selection-start-column="66" selection-end-line="77" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -122,30 +106,30 @@
       <file leaf-file-name="order.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/order.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="851">
-              <caret line="463" column="52" selection-start-line="463" selection-start-column="52" selection-end-line="463" selection-end-column="52" />
+            <state relative-caret-position="240">
+              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
               <folding>
-                <marker date="1482415864060" expanded="true" signature="3673:4232" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="4111:4128" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="9853:10108" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="12188:12202" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="12188:12435" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="12230:12435" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="12263:12435" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="12680:12698" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="12994:13012" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="13245:13263" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="13264:13505" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="13535:13553" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="13554:13687" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="13554:13688" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="13720:13738" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="13986:14004" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="14005:14209" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="14005:14210" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="14005:14226" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="14005:14227" placeholder="..." />
-                <marker date="1482415864060" expanded="true" signature="14087:14209" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="3673:4232" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="4111:4128" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="9853:10108" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="12188:12202" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="12188:12435" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="12230:12435" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="12263:12435" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="12680:12698" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="12994:13012" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="13245:13263" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="13264:13505" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="13535:13553" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="13554:13687" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="13554:13688" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="13720:13738" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="13986:14004" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="14005:14209" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="14005:14210" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="14005:14226" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="14005:14227" placeholder="..." />
+                <marker date="1482483827483" expanded="true" signature="14087:14209" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -226,9 +210,9 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Products.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/OrdersController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Orders/add-order.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ProductsController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Orders/add-order.html.twig" />
         <option value="$PROJECT_DIR$/web/js/order.js" />
       </list>
     </option>
@@ -273,8 +257,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -973,12 +955,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../timesheet" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../watchdog" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="SearchEverywhereHistoryKey" value="order.&#9;FILE&#9;file://D:/Projects/modern-home/web/js/order.js&#10;routin&#9;FILE&#9;file://D:/Projects/modern-home/src/LoginBundle/Resources/config/routing.yml&#10;appker&#9;null&#9;null" />
@@ -1081,12 +1065,13 @@
       <workItem from="1478532660570" duration="2858000" />
       <workItem from="1479372091143" duration="20793000" />
       <workItem from="1482312531281" duration="33535000" />
-      <workItem from="1482420247534" duration="20000" />
+      <workItem from="1482420247534" duration="125000" />
+      <workItem from="1482474439606" duration="8670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101988000" />
+    <option name="totallyTimeSpent" value="110763000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1101,7 +1086,7 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13672496" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13791732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964823" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1137,13 +1122,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/fileinput.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1405,14 +1383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LoginBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1431,68 +1401,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1195">
+          <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/OrdersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        <state relative-caret-position="360">
+          <caret line="23" column="70" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
           <folding>
             <element signature="e#136#193#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Orders/add-order.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ProductsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+        <state relative-caret-position="442">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#136#193#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="644" column="3" selection-start-line="644" selection-start-column="3" selection-end-line="644" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Orders/add-order.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="77" column="66" selection-start-line="77" selection-start-column="66" selection-end-line="77" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/order.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="463" column="52" selection-start-line="463" selection-start-column="52" selection-end-line="463" selection-end-column="52" />
+        <state relative-caret-position="240">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
           <folding>
-            <marker date="1482415864060" expanded="true" signature="3673:4232" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="4111:4128" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="9853:10108" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="12188:12202" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="12188:12435" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="12230:12435" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="12263:12435" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="12680:12698" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="12994:13012" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="13245:13263" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="13264:13505" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="13535:13553" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="13554:13687" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="13554:13688" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="13720:13738" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="13986:14004" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="14005:14209" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="14005:14210" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="14005:14226" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="14005:14227" placeholder="..." />
-            <marker date="1482415864060" expanded="true" signature="14087:14209" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="3673:4232" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="4111:4128" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="9853:10108" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="12188:12202" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="12188:12435" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="12230:12435" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="12263:12435" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="12680:12698" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="12994:13012" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="13245:13263" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="13264:13505" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="13535:13553" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="13554:13687" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="13554:13688" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="13720:13738" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="13986:14004" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="14005:14209" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="14005:14210" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="14005:14226" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="14005:14227" placeholder="..." />
+            <marker date="1482483827483" expanded="true" signature="14087:14209" placeholder="..." />
           </folding>
         </state>
       </provider>

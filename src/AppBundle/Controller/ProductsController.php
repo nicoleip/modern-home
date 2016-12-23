@@ -31,12 +31,13 @@ class ProductsController extends Controller
         return new Response(json_encode($productData));
     }
 
-    public function fetchSelectedProductDataAction($id)
+    public function fetchSelectedProductDataAction(Request $request)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $repository = $em->getRepository('AppBundle:Products');
 
-        $productData = $repository->findOneBy($id);
+        $productId = $request->get("id");
+        $productData = $repository->findOneBy(array('id' => $productId));
         return new Response(json_encode($productData));
     }
 }
